@@ -35,7 +35,7 @@ function mostrar()
  var hddcantidadtotal;
  hddcantidadtotal=0;
  unidades=0;
-    for (var i=0; i < 2; i=i+1) 
+    for (var i=0; i < 5; i=i+1) 
 	{
 		tipo = prompt("Ingrese Producto 'HDD', 'SSD' ó 'SSDM2'"); //Tipo: (validar "HDD", "SSD" o "SSDM2")
       while (tipo != "HDD" && tipo != "SSD" && tipo != "SSDM2" ) 
