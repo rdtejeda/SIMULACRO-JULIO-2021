@@ -1,6 +1,6 @@
 /*
 Autor Tejeda Roberto
-Simulacro Ej 1
+Simulacro Julio 2021 Ej 1
 Nos dedicamos a la venta exclusiva de Discos rígidos.
 Debemos realizar la carga de 5(cinco) productos, de cada uno debo obtener los 
 siguientes datos:

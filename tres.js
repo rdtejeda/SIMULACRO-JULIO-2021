@@ -15,7 +15,8 @@ e) El promedio de edad de los hombres que se aplicaron la vacuna SputnikV y no p
 */
 
 
-/*Autor Tejeda Roberto
+/* INTEGRADOR 30 de julio
+Autor Tejeda Roberto
 Integrador 1
 Luego de la campaña de vacunación “COVID19” se realizó un censo sobre la población para obtener distintos datos estadísticos:
 Se ingresará hasta que usuario decida:

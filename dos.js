@@ -62,7 +62,7 @@ function mostrar()
     }    
   compra=precio*bolsas;
   totalbruto=totalbruto+compra;  //a)	El importe total a pagar bruto, sin descuento.
-  totalbolsas=totalbolsas+bolsas
+  totalbolsas=totalbolsas+bolsas;
   if (totalbolsas>=5 && totalbolsas<10) //b)	El importe total a pagar con descuento (solo si corresponde)
     {
       descuento=0.9;
@@ -116,8 +116,7 @@ function mostrar()
     } 
     seguir = prompt("Para seguir cargando indrese 'si'"); 
   }
-  
-  if (descuento == 1) //b)	El importe total a pagar con descuento (solo si corresponde)
+    if (descuento == 1) //b)	El importe total a pagar con descuento (solo si corresponde)
    {
     alert("a) El importe total a pagar bruto, sin descuento es "+totalbruto+"; "+
     "c)	El tipo con más cantidad de bolsas es "+mayorbolsas+"; "+
