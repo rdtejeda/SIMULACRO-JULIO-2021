@@ -43,14 +43,14 @@ function mostrar()
         tipo = prompt("INGRESO ERRONEO Ingrese 'HDD', 'SSD' ó 'SSDM2'");
       }
       precio = parseInt(prompt("Ingrese cantidad Mayor a 5000 y 18000")); //Precio: (validar entre 5000 y 18000)
-      while( cantidad>=5000 && cantidad<18000)
+      while( precio<5000 || precio>18000)
       {
-         precio = prompt("INGRESO ERRONEO Debe ser Mayor a 5000 y menor a 18000");
+         precio = parseInt(prompt("INGRESO ERRONEO Debe ser Mayor a 5000 y menor a 18000"));
       }
       cantidad = parseInt(prompt("Ingrese cantidad Mayor a 0 y menor a 50")); //Cantidad de unidades (no puede ser 0 o negativo y no debe superar las 50 Unidades)
-      while( cantidad<=0 && cantidad>50)
+      while( cantidad<=0 || cantidad>50)
       {
-         cantidad = prompt("INGRESO ERRONEO Debe ser Mayor a 0 y menor a 50");
+         cantidad = parseInt(prompt("INGRESO ERRONEO Debe ser Mayor a 0 y menor a 50"));
       }
       marca = prompt("Ingrese Marca “Seagate”, “Western Digital”, “Kingston”"); //Marca: (validar “Seagate”, “Western Digital”, “Kingston”)
       while (marca != "Seagate" && marca != "Western Digital" && marca != "Kingston" ) 
@@ -113,4 +113,3 @@ function mostrar()
     " Punto b) -Del tipo HDD, el de mayor precio es "+hddmascaro+" la capacidad de almacenamiento es "+hddcapacidad+" y la cantidad de unidades es "+hddcantidad+
     " Punto c) - Las unidades de HDD en total son "+hddcantidadtotal);
 }
-
