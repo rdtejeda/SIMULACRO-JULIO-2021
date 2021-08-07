@@ -1,4 +1,135 @@
+
 /*
+final 4 ago
+EJERCICIO 3
+debemos cargar 10 productos que acaban de llegar a la empresa 
+"Galletitas Felices", para cada producto se debe registrar
+ marca del producto
+ Tipo de galletita : "con sal", "sin sal", "dulces".
+ cantidad de cajas: mas de 0
+ cantidad de kilos por caja:mas de 0
+ nombre proveedor
+ origen: "nacional", "mercosur", "resto del mundo"
+	a) informar el ingreso con la menor cantidad de cajas
+	b) de las galletitas dulces , la marca que mas kilos tiene por caja
+	c)que porcentaje de cajas hay sobre el total de cada tipo
+	ej: 30% sin sal ,30% con sal, 40% dulces ( debe sumar 100)
+
+function mostrar()
+{
+  var i;
+  i=0;
+  var tipo;
+  var cantidad;
+  cantidad=0;
+  var kgporcaja;
+  var proveedor;
+  var origen;
+  var banderamenorcantidaddecajas;
+  banderamenorcantidaddecajas=true;
+  var menorcantidaddecajas;
+  var cantsinsal;
+  cantsinsal=0;
+  var cantdulces;
+  cantdulces=0;
+  var cantconsal;
+  cantconsal=0;
+  var banderamaskilos;
+  banderamaskilos=true;
+  var maskilosdulce;
+  var maskilomarca;
+  var cajastotales;
+  cajastotales=0;
+  var porsinsal;
+  var porconsal;
+  var pordulce;
+
+   for (i = 0; i < 3 ; i++)
+  {
+    // Tipo de galletita : "con sal", "sin sal", "dulces".
+    tipo=prompt("Ingrese  Tipo de galletita : 'con sal', 'sin sal', 'dulces'");
+    while (tipo!="con sal" && tipo!="sin sal" && tipo!="dulces")
+    {
+    tipo=prompt("ERROR Ingrese  Tipo de galletita : 'con sal', 'sin sal', 'dulces'");
+    }
+    //cantidad de cajas: mas de 0
+    cantidad=parseInt(prompt("cantidad de cajas: mas de 0"));
+    while (cantidad<=0)
+    {
+    cantidad=parseInt(prompt("ERROR, cantidad de cajas: mas de 0"));
+    }
+    // cantidad de kilos por caja:mas de 0
+    kgporcaja=parseInt(prompt("Kg x caja: mas de 0"));
+    while (kgporcaja<=0)
+    {
+    kgporcaja=parseInt(prompt("ERROR, cantidad de cajas: mas de 0"));
+    }
+    // nombre proveedor
+    proveedor=prompt("iNGRESE EL PROVEEDOR");
+    // origen: "nacional", "mercosur", "resto del mundo"
+    origen=prompt("Ingrese origen: 'nacional', 'mercosur', 'resto del mundo'");
+    while (origen!="nacional" && origen!="mercosur" && origen!="resto del mundo")
+    {
+      origen=prompt("ERROR Ingrese origen: 'nacional', 'mercosur', 'resto del mundo'");
+    }
+    //a) informar el ingreso con la menor cantidad de cajas
+    if (banderamenorcantidaddecajas)
+    {
+      menorcantidaddecajas=cantidad;
+    } 
+    else
+    {
+      if (menorcantidaddecajas>cantidad)
+      {
+        menorcantidaddecajas=cantidad;
+      }
+    }
+    // b) de las galletitas dulces , la marca que mas kilos tiene por caja
+    switch (tipo) 
+    {
+      case "con sal":
+        cantconsal++
+            break;
+    case "dulces":
+      cantdulces++
+      if (banderamaskilos)
+      {
+        maskilosdulce=kgporcaja;
+        maskilomarca=proveedor;
+        banderamaskilos=false
+      } else
+      {
+        if (maskilosdulce<kgporcaja)
+        {
+          maskilosdulce=kgporcaja;
+          maskilomarca=proveedor;
+        }
+      }
+      break;
+    case"sin sal":
+    cantsinsal++
+      break;
+    default:
+        break;
+    }
+    // c)que porcentaje de cajas hay sobre el total de cada tipo
+    cajastotales++
+        //ej: 30% sin sal ,30% con sal, 40% dulces ( debe sumar 100)
+  }  
+  porsinsal=cantsinsal/cajastotales*100;
+  porconsal=cantconsal/cajastotales*100;
+  pordulce=cantdulces/cajastotales*100
+  alert ("a) el ingreso con la menor cantidad de cajas es "+menorcantidaddecajas+
+      " ;  b) de las galletitas dulces , la marca que mas kilos tiene por caja es "+maskilomarca+
+      "c) Porcentaje de cajas sobre el total de sin sal es "+porsinsal+" , con sal es "+porconsal+" y dulces es "+pordulce);  
+}
+*/
+
+
+
+
+/*
+simulacro 3
 Luego de la campaña de vacunación “COVID19” se realizó un censo sobre la población para obtener distintos datos estadísticos:
 Se ingresará hasta que usuario decida:
 Nombre.
@@ -6,16 +137,87 @@ Edad.
 Género: “F”, “M”, “NB”.
 Vacuna: “SputnikV”, “AstraZeneca”, “Otra”.
 Temperatura corporal (durante la primera noche).
-Se pide:  
+Se pide:
+
 a) El nombre y vacuna de la persona con mayor temperatura.
 b) Cuántas personas de género Femenino recibieron la vacuna SputnikV.
 c) La cantidad de personas de género No Binario que recibieron AstraZeneca u Otra.
 d) Cuántas personas que se aplicaron la vacuna AstraZeneca, presentaron una temperatura mayor a 38°.
 e) El promedio de edad de los hombres que se aplicaron la vacuna SputnikV y no presentaron fiebre. (37° o menos)
+*
+function mostrar()
+{
+	var seguir;
+	seguir="si";
+	var cantidad;
+	var banderamasalto;
+	banderamasalto=true;
+	var banderamasbajo;
+	banderamasbajo=true;
+	var masbajo;
+	var masalto;
+	while (seguir == "si")
+	{
+	
+	    cantidad = parseInt(prompt("Ingrese cantidad Mayor a 0 y menor a 10"));
+   		 while( cantidad<=0 || cantidad>=10)
+      {
+         cantidad = parseInt(prompt("INGRESO ERRONEO Debe ser Mayor a 0 y menor a 10"));
+      
+      }
+	
+	  //MasBajoBandera
+
+      if (banderamasbajo) 
+            {
+                banderamasbajo=false;
+                masbajo=cantidad;
+                banderamasbajo=false;
+              
+            } 
+             else 
+               {
+                   if (cantidad<masbajo) 
+                   {
+                    masbajo=cantidad;
+                   }
+               }
+
+      //MasAltoBandera
+
+      if (banderamasalto) 
+            {
+                banderamasalto=false;
+                masalto=cantidad;
+                banderamasalto=false;
+              
+            } 
+             else 
+               {
+                   if (cantidad>masalto) 
+                   {
+                    masalto=cantidad;
+                   }
+               }
+	
+	
+	
+	
+		seguir=prompt("Para seguir ingrese 'si' y para terminar 'no'");
+	 while (seguir!="si" && seguir!="no") 
+	 {
+	   seguir=prompt("ERROR - Para seguir ingrese 'si' y para terminar 'no'");
+	 }
+	}
+
+
+alert(masbajo+"y"+masalto);
+}
 */
 
 
-/* INTEGRADOR 30 de julio
+/* 
+OJO - INTEGRADOR 30 de julio - UINO
 Autor Tejeda Roberto
 Integrador 1
 Luego de la campaña de vacunación “COVID19” se realizó un censo sobre la población para obtener distintos datos estadísticos:
@@ -35,7 +237,7 @@ f) Porcentaje de personas que se aplicaron Aztrazeneca
 g) Cual fue la vacuna mas aplicada
 h) Promedio de edad de las personas que se dieron cada vacuna
 i) Que porcentaje de personas de cada genero hay. Ej: 30% Femenino, 60% Masculino y 10% No Binario
-*/
+
 function mostrar()
 {
 var seguir;
@@ -231,7 +433,9 @@ while (seguir == "si") //Se ingresará hasta que usuario decida:
 //isNaN(edadpAz>9)
 //contadores distinto de 0 if
 
-/*Autor Tejeda Roberto
+/*
+OJO - INTEGRADOR 30 de julio - DOS
+Autor Tejeda Roberto
 Integrador B
 Luego de la campaña de vacunación “COVID19” se realizó un censo sobre la población para obtener distintos datos estadísticos:
 Se ingresará hasta que usuario decida:
@@ -299,7 +503,9 @@ while (seguir == "si") //Se ingresará hasta que usuario decida:
 	alert(contadorb+" Personas que se autoperciben como femeninas recibieron SputnikV");
 }*/
 
-/*Autor Tejeda Roberto
+/*
+OJO - INTEGRADOR 30 de julio - TRES
+Autor Tejeda Roberto
 Integrador C
 Luego de la campaña de vacunación “COVID19” se realizó un censo sobre la población para obtener distintos datos estadísticos:
 Se ingresará hasta que usuario decida:
@@ -368,7 +574,9 @@ while (seguir == "si") //Se ingresará hasta que usuario decida:
 	alert("La cantidad de personas de género No Binario que recibieron AstraZeneca u Otra es "+contadorc);
 }*/
 
-/*Autor Tejeda Roberto
+/*
+OJO - INTEGRADOR 30 de julio - CUATRO
+Autor Tejeda Roberto
 Integrador D
 Luego de la campaña de vacunación “COVID19” se realizó un censo sobre la población para obtener distintos datos estadísticos:
 Se ingresará hasta que usuario decida:
@@ -437,7 +645,10 @@ while (seguir == "si") //Se ingresará hasta que usuario decida:
 	alert("La cantidad de  personas que se aplicaron la vacuna AstraZeneca, presentaron una temperatura mayor a 38° es  "+contadord);
 }*/
 
-/*Autor Tejeda Roberto
+/*
+OJO - INTEGRADOR 30 de julio - cinco
+
+Autor Tejeda Roberto
 Integrador E
 Luego de la campaña de vacunación “COVID19” se realizó un censo sobre la población para obtener distintos datos estadísticos:
 Se ingresará hasta que usuario decida:
@@ -512,7 +723,9 @@ while (seguir == "si") //Se ingresará hasta que usuario decida:
 }*/
 
 
-/*Autor Tejeda Roberto
+/*
+OJO - INTEGRADOR 30 de julio - seis
+Autor Tejeda Roberto
 Integrador F
 Luego de la campaña de vacunación “COVID19” se realizó un censo sobre la población para obtener distintos datos estadísticos:
 Se ingresará hasta que usuario decida:
@@ -587,7 +800,9 @@ while (seguir == "si") //Se ingresará hasta que usuario decida:
 	alert("El Porcentaje de personas que se aplicaron Aztrazeneca es "+porcentaje+" %");
 }*/
 
-/*Autor Tejeda Roberto
+/*
+OJO - INTEGRADOR 30 de julio - siete
+Autor Tejeda Roberto
 Integrador G
 Luego de la campaña de vacunación “COVID19” se realizó un censo sobre la población para obtener distintos datos estadísticos:
 Se ingresará hasta que usuario decida:
@@ -689,7 +904,9 @@ while (seguir == "si") //Se ingresará hasta que usuario decida:
 }*/
 
 
-/*Autor Tejeda Roberto
+/*
+OJO - INTEGRADOR 30 de julio - ocho
+Autor Tejeda Roberto
 Integrador H
 Luego de la campaña de vacunación “COVID19” se realizó un censo sobre la población para obtener distintos datos estadísticos:
 Se ingresará hasta que usuario decida:
