@@ -27,6 +27,144 @@ function mostrar()
 	}
 	*/		
 }
+/*Alumno Tejeda Roberto
+  DNI 18223125
+EJERCICIO 1
+Un restaurante necesita un programa que permita 
+ingresar datos de los platos con su precio a pagar
+y cantidad hasta que el cliente quiera. Por cada cliente, se ingresa:
+plato: (validar "ravioles", "milanesa", "pizza").
+precio del plato (desde 100 hasta 500)
+cantidad (mas que 0)
+medio de pago (validar "efectivo", "debito", "credito")
+a)	El importe total de todos los clientes.
+		Si el medio de pago es efectivo, se debe aplicar un 10% de descuento.
+		Si el medio de pago es credito, se debe aplicar un 15% de recargo.
+b)	El importe total de todos los clientes que pagaron en efectivo. (aplicando el descuento del 10%)
+c)	Promedio de ventas con Debito.
+d)	Promedio por plato y el más barato.
+
+function mostrar()
+{
+	var seguir;
+	seguir="si";
+	var clientes;
+	clientes=0;
+	var plato;
+	var precio;
+	var cantidad;
+	var pago;
+	var importetotal;
+	importetotal=0;
+	var importecondescuento;
+	var totalefectivo;
+	totalefectivo=0;
+	var totaldebito;
+	totaldebito=0;
+	var promediodebito;
+	var contadebito;
+	contadebito=0;
+	var banderamasbarto;
+	banderamasbarto=true;
+	var platomasbarto;
+	var precioplatomasbarato;
+	var promedioplato;
+	var cantidadplatos;
+	cantidadplatos=0;
+
+	while (seguir == "si")
+	{
+		//Por cada cliente, se ingresa:
+		clientes++ 
+		//plato: (validar "ravioles", "milanesa", "pizza").
+		plato= prompt("Ingrese 'ravioles', 'milanesa' ó 'pizza'");
+		while (plato != "ravioles" && plato != "milanesa" && plato != "pizza") 
+		{
+			plato= prompt("ERROR - Ingrese 'ravioles', 'milanesa' ó 'pizza'");
+		}
+		//precio del plato (desde 100 hasta 500)
+		precio = prompt("Ingreseprecio del plato (desde 100 hasta 500)");
+		precio = parseInt(precio);
+		while( precio<=100 || precio>=500)
+		  {
+			precio = prompt("Ingreseprecio del plato (desde 100 hasta 500)");
+			precio = parseInt(precio);   
+		  }
+		//cantidad (mas que 0)
+		cantidad = prompt("Ingrese cantidad cantidad (mas que 0)");
+		cantidad = parseInt(cantidad);
+		while( cantidad<=0)
+		  {
+			cantidad = prompt("Ingrese cantidad cantidad (mas que 0)");
+		    cantidad = parseInt(cantidad);
+		  }
+		  cantidadplatos=cantidadplatos+cantidad;
+		  //medio de pago (validar "efectivo", "debito", "credito")
+		  pago= prompt("Ingrese 'efectivo', 'debito' ó 'credito'");
+		  while (pago != "efectivo" && pago != "debito" && pago != "credito") 
+		  {
+			pago= prompt("ERROR - Ingrese 'efectivo', 'debito' ó 'credito'");
+		  }
+		importetotal=importetotal+(cantidad*precio);// a)	El importe total de todos los clientes.
+		 
+		//b)	El importe total de todos los clientes que pagaron en efectivo. (aplicando el descuento del 10%)
+		if (pago == "efectivo") 
+
+		  {
+			  totalefectivo=(totalefectivo+(cantidad*precio))*0.9;
+		  }
+		//c)	Promedio de ventas con Debito.
+		if (pago == "debito")
+		{
+			totaldebito=totaldebito+(cantidad*precio);
+			contadebito++
+
+		}
+
+		if (banderamasbarto) //d)	Promedio por plato y el más barato.
+		{
+			banderamasbarto=false;
+			platomasbarto=plato;
+			precioplatomasbarato=precio;
+		} 
+		 else 
+		   {
+			   if (platomasbarto<platomasbarto) 
+			   {
+				platomasbarto=plato;
+			    precioplatomasbarato=precio;
+			   }
+		   }   
+   
+	 seguir=prompt("Para seguir ingrese 'si' y para terminar 'no'");
+	 while (seguir!="si" && seguir!="no") 
+	 {
+	   seguir=prompt("ERROR - Para seguir ingrese 'si' y para terminar 'no'");
+	 }
+	}
+    //Si el medio de pago es efectivo, se debe aplicar un 10% de descuento.
+	//Si el medio de pago es credito, se debe aplicar un 15% de recargo.
+	if (pago == "efectivo")
+	{
+		importecondescuento=importetotal*0.9;
+		
+	}
+	else
+	{
+		if (pago == "credito")
+		{
+			importecondescuento=importetotal+0.85;
+		}
+	}
+    promediodebito=totaldebito/contadebito;
+	promedioplato=importetotal/cantidadplatos;
+
+	alert("a)	El importe total de todos los clientes es "+importetotal+" y con descuento es "+importecondescuento);
+	alert("b)	El importe total de todos los clientes que pagaron en efectivo. (aplicando el descuento del 10%) es "+totalefectivo);
+	alert("c)	Promedio de ventas con Debito es "+promediodebito);
+	alert("/d)	Promedio por plato es "+promedioplato+" y el más barato es "+platomasbarto+" y sale "+precioplatomasbarato);
+	
+}*/
 
 
 /*Alumno Tejeda Roberto

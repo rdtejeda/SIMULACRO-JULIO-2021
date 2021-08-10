@@ -19,6 +19,146 @@ function mostrar()
 	}
 	*/		
 }
+/*Alumno Tejeda Roberto
+  DNI 18223125
+El dueño de una tienda dedicada a la compra/venta de cartas de Yu-Gi-Oh! desea ingresar en el
+sistema las ventas realizadas en el dia de la fecha y conocer ciertos datos en base a las cartas
+que se vendieron.
+Se ingresara hasta que el usuario decida:
+* Nombre de la carta.
+* Tipo de carta: Validar "monstruo", "magica", "trampa".
+* Rareza: Validar "rara", "super rara", "ultra rara".
+* Precio: Validar que no sea 0 o negativo.
+Se pide informar por document.write:
+A) El nombre y rareza  de la carta tipo "trampa" con mayor precio.
+B) Cuantas cartas de rareza "ultra rara" y de tipo "magica" o "monstruo" fueron vendidas.
+C) El promedio de precio de las cartas de por tipo.
+
+
+function mostrar()
+{
+	var seguir;
+	seguir="si";
+	var nombre;
+	var tipo;
+	var rareza;
+	var precio;
+	var cantidad;
+	var banderamayorpreciotrampa;
+	banderamayorpreciotrampa=true;
+	var nombremayorpreciotrampa;
+	var	rareazamayorpreciotrampa;
+	var	preciomayorpreciotrampa;
+	var contarmagica;
+	contarmagica=0;
+	var contarmonstruo;
+	contarmonstruo=0;
+	var contarultrara;
+	contarultrara=0;
+	var contartrampa;
+	contartrampa=0;
+	var acumulopreciomagica;
+	acumulopreciomagica=0;
+	var acumulopreciomonstuo;
+	acumulopreciomonstuo=0;
+	var acumulopreciotrampa;
+	acumulopreciotrampa=0;
+	var promtrampa;
+	var prommagica;
+	var prommonstruo;
+
+
+	while (seguir == "si")
+	{
+		//* Nombre de la carta.
+		nombre= prompt("Ingrese Nombre de la carta (Entre 3 y 10 caracteres");
+		while (nombre.length<3 || nombre.length>10) 
+		  {
+			nombre= prompt("ERROR - Ingrese Nombre de la carta (Entre 3 y 10 caracteres");
+		  }    
+		//* Tipo de carta: Validar "monstruo", "magica", "trampa".
+		tipo = prompt("Tipo de carta: Validar 'monstruo', 'magica', 'trampa'");
+		while (tipo != "monstruo" && tipo != "magica" && tipo != "trampa") 
+		{
+			tipo = prompt("ERROR - Tipo de carta: Validar 'monstruo', 'magica', 'trampa'");
+		}
+		//* Rareza: Validar "rara", "super rara", "ultra rara".
+		rareza= prompt("Ingrese Rareza 'rara', 'super rara', 'ultra rara'");
+		while (rareza != "rara" && rareza != "super rara" && rareza != "ultra rara") 
+		{
+			rareza= prompt("ERROR - Ingrese Rareza 'rara', 'super rara', 'ultra rara'");
+		}		
+		//* Precio: Validar que no sea 0 o negativo.
+		precio = prompt("Ingrese Precio: que no sea 0 o negativo.");
+		precio = parseInt(precio);
+		while( precio<=0)
+		  {
+			precio = prompt("Ingrese Precio: que no sea 0 o negativo.");
+			precio = parseInt(precio);   
+		  }
+		//cantidad
+		cantidad = prompt("Ingrese CANTIDAD: que no sea 0 o negativo.");
+		cantidad = parseInt(cantidad);
+		while( cantidad<=0)
+		  {
+			cantidad = prompt("Ingrese CANTIDAD: que no sea 0 o negativo.");
+		    cantidad = parseInt(cantidad);  
+		  }
+		switch (tipo) {
+			case "monstruo":
+				contarmonstruo++
+				acumulopreciomonstuo=acumulopreciomonstuo+precio;
+				break;
+			case "magica":
+				contarmagica++
+				acumulopreciomagica=acumulopreciomagica+precio;
+				break;
+			case "trampa":// A) El nombre y rareza  de la carta tipo "trampa" con mayor precio.
+			if (banderamayorpreciotrampa) 
+            {
+                banderamayorpreciotrampa=false;
+                nombremayorpreciotrampa=nombre;
+				rareazamayorpreciotrampa=rareza;
+				preciomayorpreciotrampa=precio;
+			} 
+             else 
+               {
+                   if (precio>preciomayorpreciotrampa) 
+                   {
+					nombremayorpreciotrampa=nombre;
+					rareazamayorpreciotrampa=rareza;
+					preciomayorpreciotrampa=precio;
+                   }
+               }
+			   contartrampa++
+			   acumulopreciotrampa=acumulopreciotrampa+precio;
+				break;		
+			default:
+				break;
+		}
+		//B) Cuantas cartas de rareza "ultra rara" y de tipo "magica" o "monstruo" fueron vendidas.
+		if ( rareza == "ultra rara")
+		{
+			contarultrara=contarultrara+cantidad;
+		}
+   
+	 seguir=prompt("Para seguir ingrese 'si' y para terminar 'no'");
+	 while (seguir!="si" && seguir!="no") 
+	 {
+	   seguir=prompt("ERROR - Para seguir ingrese 'si' y para terminar 'no'");
+	 }
+	}
+//C) El promedio de precio de las cartas de por tipo.
+	promtrampa=acumulopreciotrampa/contartrampa;
+	prommagica=acumulopreciomagica/contarmagica;
+	prommonstruo=acumulopreciomonstuo/contarmonstruo;
+
+	alert("A) El nombre y rareza  de la carta tipo 'trampa' con mayor precio es "+nombremayorpreciotrampa+" y "+rareazamayorpreciotrampa);
+	alert("B) Cartas de rareza 'ultra rara' "+contarultrara+" y de tipo 'magica' "+contarmagica+" y 'monstruo' "+contarmonstruo);
+	alert("/C) El promedio de precio de las cartas de por tipo es trampa es "+promtrampa+" , magica es "+prommagica+" y monstruo es "+prommonstruo);
+ }*/
+
+
 /*
 EJERCICIO 2 https://www.onlinegdb.com/axYDSSyrJ
 El dueño de una tienda dedicada a la compra/venta de cartas de Yu-Gi-Oh! desea ingresar en el
