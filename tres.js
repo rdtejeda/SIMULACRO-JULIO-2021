@@ -6,12 +6,13 @@
 */
 function mostrar()
 {
- 
 
 
+
 	alert("");
 	alert("");
 	alert("");
+  	document.write("");
 
   /*
   if (var !=0)
@@ -20,7 +21,17 @@ function mostrar()
   }
   */
 
-
+  /*	
+	if ((isNaN(x)))
+	{
+	alert("No hay Datos");
+	}
+	else
+	{
+		alert("");
+	}
+	*/
+  
 	/*
 	if (!(isNaN(var)))
 	{

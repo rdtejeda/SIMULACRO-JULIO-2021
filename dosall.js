@@ -19,6 +19,160 @@ function mostrar()
 	}
 	*/		
 }
+
+
+/*Alumno Tejeda Roberto
+  DNI 18223125
+
+Realizar el algoritmo que permita ingresar los datos de una compra de productos alimenticios, hasta que el cliente quiera. Por cada compra se ingresa:
+Tipo: (validar "Yerba", "Azúcar", "Café").
+Cantidad de bolsas. (más de cero).
+Precio por bolsa (más de cero).
+Si se compra más de 5 bolsas en total se obtiene un 10% de descuento sobre el total a pagar.
+Si se compra más de 10 bolsas en total se obtiene un 15% de descuento sobre el total a pagar.
+Se pide mostrar por pantalla:
+a)	El importe total a pagar bruto, sin descuento.
+
+b)	El importe total a pagar con descuento (solo si corresponde)
+
+c)	Informar el tipo con más cantidad de bolsas.
+d)	El tipo de la compra más barata. (sobre el Bruto sin descuento)
+
+
+function mostrar()
+{
+var seguir;
+seguir="si";
+var tipo;
+var cantidad;
+var precio;
+var totalbruto;
+totalbruto=0;
+var bcompras;
+bcompras=0;
+var totalcondescuento;
+var bolsasCafe;
+bolsasCafe=0;
+var bolsasYerba;
+bolsasYerba=0;
+var bolsasAzucar;
+bolsasAzucar=0;
+var compra;
+var banderacompramasbarata;
+banderacompramasbarata=true;
+var compramasbarata;
+var tipomasbarata;
+var descuento;
+
+
+ while (seguir == "si")
+ {
+//Tipo: (validar "Yerba", "Azúcar", "Café").
+	tipo= prompt("Ingrese 'Yerba', 'Azúcar' ó 'Café'");
+    while (tipo != "Yerba" && tipo != "Azúcar" && tipo != "Café") 
+    {
+		tipo= prompt("ERROR - Ingrese 'Yerba', 'Azúcar' ó 'Café'");
+	}
+	//Cantidad de bolsas. (más de cero).
+	cantidad = prompt("Ingrese Cantidad de bolsas. (más de cero)");
+    cantidad = parseInt(cantidad);
+    while( cantidad<=0)
+      {
+    cantidad = prompt("ERROR - Ingrese Cantidad de bolsas. (más de cero)");
+    cantidad = parseInt(cantidad); 
+      }
+//Precio por bolsa (más de cero).
+	  precio = prompt("Ingrese Precio Mayor a 0");
+	  precio = parseInt(precio);
+	while( precio<=0)
+		{
+		precio = prompt("ERROR - Ingrese Precio  Mayor a 0");
+		precio = parseInt(precio);
+		}
+
+	switch (tipo) //c)	Informar el tipo con más cantidad de bolsas.
+	 {
+		case "Azúcar":
+			bolsasAzucar=bolsasAzucar+cantidad;
+			break;
+		case "Café":
+			bolsasCafe=bolsasCafe+cantidad;
+			break;
+		case "Yerba":
+			bolsasYerba=bolsasYerba+cantidad;
+			break;
+		default:
+			break;
+	}
+	compra=cantidad*precio;
+	totalbruto=totalbruto+compra; //a)	El importe total a pagar bruto, sin descuento.
+	bcompras=bcompras+cantidad; 
+    //d)	El tipo de la compra más barata. (sobre el Bruto sin descuento)
+	if (banderacompramasbarata) 
+	{
+		banderacompramasbarata=false;
+		compramasbarata=compra;
+		tipomasbarata=tipo;
+	} 
+	 else 
+	   {
+		   if (compra<compramasbarata) 
+		   {
+			compramasbarata=compra;
+			tipomasbarata=tipo;
+		   }
+	   }	
+
+  seguir=prompt("Para seguir ingrese 'si' y para terminar 'no'");
+  while (seguir!="si" && seguir!="no") 
+  {
+    seguir=prompt("ERROR - Para seguir ingrese 'si' y para terminar 'no'");
+  }
+ }
+
+ if (bcompras>5 && bcompras<=10) 
+	   {
+	   descuento=0.9 //Si se compra más de 5 bolsas en total se obtiene un 10% de descuento sobre el total a pagar.
+	   
+	}
+		else 
+		{
+		   if (bcompras>10)
+		   {
+			   descuento=0.85 //Si se compra más de 10 bolsas en total se obtiene un 15% de descuento sobre el total a pagar.
+			   
+		   }	
+		}
+	totalcondescuento=totalbruto*descuento;
+
+  
+	alert("a) El importe total a pagar bruto, sin descuento es "+totalbruto);
+
+	if (bcompras>5) //b)	El importe total a pagar con descuento (solo si corresponde)
+	{
+		alert("b) El importe total a pagar con descuento es "+totalcondescuento);
+	}
+	
+	if (bolsasAzucar>bolsasCafe && bolsasAzucar>bolsasYerba)
+	{
+		alert("El tipo con más cantidad de bolsas es Azúcar");
+	}
+	 else
+	  {
+		if (bolsasCafe>bolsasYerba && bolsasCafe>bolsasAzucar)
+		{
+			alert("El tipo con más cantidad de bolsas es Café");
+		} 
+		else 
+		{
+			alert("El tipo con más cantidad de bolsas es Yerba");
+		}
+      }
+	
+	  alert("El tipo de la compra más barata es de "+tipomasbarata);	
+}
+*/
+
 /*Alumno Tejeda Roberto
   DNI 18223125
 El dueño de una tienda dedicada a la compra/venta de cartas de Yu-Gi-Oh! desea ingresar en el

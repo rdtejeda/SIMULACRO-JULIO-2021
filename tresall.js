@@ -20,6 +20,156 @@ function mostrar()
 	*/		
 }
 
+/*Alumno Tejeda Roberto
+  DNI 18223125
+
+Luego de la campaña de vacunación “COVID19” se realizó un censo sobre la población para obtener distintos datos estadísticos:
+Se ingresará hasta que usuario decida:
+Nombre.
+Edad.
+Género: “F”, “M”, “NB”.
+Vacuna: “SputnikV”, “AstraZeneca”, “Otra”.
+Temperatura corporal (durante la primera noche).
+Se pide:
+a) El nombre y vacuna de la persona con mayor temperatura.
+b) Cuántas personas de género Femenino recibieron la vacuna SputnikV.
+c) La cantidad de personas de género No Binario que recibieron AstraZeneca u Otra.
+d) Cuántas personas que se aplicaron la vacuna AstraZeneca, presentaron una temperatura mayor a 38°.
+e) El promedio de edad de los hombres que se aplicaron la vacuna SputnikV y no presentaron fiebre. (37° o menos)
+
+
+function mostrar()
+{
+	var seguir;
+	seguir="si";
+	var nombre;
+	var edad;
+	var genero;
+	var vacuna;
+	var temperatura;
+	var banderamayortemp;
+	banderamayortemp=true;
+	var	tempmayortemp;
+	var	nombremayortemp;
+	var vacunamayortemp;
+	var femsputnik;
+	femsputnik=0;
+	var nbotra;
+	nbotra=0;
+	var nbastra;
+	nbastra=0;
+	var contarastratemp;
+	contarastratemp=0;
+	var contarmsinfiebre;
+	contarmsinfiebre=0;
+	var acumuladadmassinfiebre;
+	acumuladadmassinfiebre=0;
+	var promedio;
+
+	while (seguir == "si")
+	{
+   	//Nombre.	   
+	   nombre= prompt("Ingrese Nombre (Entre 3 y 10 caracteres");
+	   while (nombre.length<3 || nombre.length>10) 
+		 {
+		   nombre= prompt("ERROR - Ingrese Nombre (Entre 3 y 10 caracteres");
+		 } 
+	//Edad.
+		edad = prompt("Ingrese Edad Mayor a 0 y menor a 100");
+   		edad = parseInt(edad);
+   		 while( edad<=0 || edad>=100)
+    	  {
+			edad = prompt("ERROR - Ingrese Edad Mayor a 0 y menor a 100");
+			edad = parseInt(edad);     
+    	  }		
+		//Género: “F”, “M”, “NB”.
+		genero= prompt("Ingrese Genero 'F', 'M' ó 'NB'");
+		while (genero != "F" && genero != "M" && genero != "NB") 
+		{
+			genero= prompt("ERROR -Ingrese Genero 'F', 'M' ó 'NB'");
+		}
+		//Vacuna: “SputnikV”, “AstraZeneca”, “Otra”.
+		vacuna= prompt("Ingrese 'SputnikV', 'AstraZeneca' ó 'Otra'");
+		while (vacuna != "SputnikV" && vacuna != "AstraZeneca" && vacuna != "Otra") 
+		{
+			vacuna= prompt("ERROR - Ingrese 'SputnikV', 'AstraZeneca' ó 'Otra'");
+		}
+
+		//Temperatura corporal (durante la primera noche).
+		temperatura = prompt("Ingrese Temperatura corporal (durante la primera noche) Mayor a 35 y menor a 45");
+		temperatura = parseInt(temperatura);
+		while( temperatura<=35 || temperatura>=45)
+		  {
+			temperatura = prompt("ERROR - Ingrese Temperatura corporal (durante la primera noche) Mayor a 35 y menor a 45");
+			temperatura = parseInt(temperatura); 
+		  }
+		// a) El nombre y vacuna de la persona con mayor temperatura.
+		if (banderamayortemp) 
+		{
+			banderamayortemp=false;
+			tempmayortemp=temperatura;
+		  	nombremayortemp=nombre;
+			vacunamayortemp=vacuna;
+		} 
+		 else 
+		   {
+			   if (temperatura>tempmayortemp) 
+			   {
+				tempmayortemp=temperatura;
+		  		nombremayortemp=nombre;
+				vacunamayortemp=vacuna;
+			   }
+		   }
+		switch (vacuna) 
+		{
+			case "SputnikV":
+				if (genero == "F") //b) Cuántas personas de género Femenino recibieron la vacuna SputnikV.
+				{
+					femsputnik++
+				}
+				if (genero == "M") // e) El promedio de edad de los hombres que se aplicaron la vacuna SputnikV y no presentaron fiebre. (37° o menos)
+				{
+					if (temperatura<=37)
+					{
+						contarmsinfiebre++
+						acumuladadmassinfiebre=acumuladadmassinfiebre+edad;
+					}
+				}
+
+				break;
+			case "AstraZeneca": // c) La cantidad de personas de género No Binario que recibieron AstraZeneca u Otra.
+				nbastra++
+				if (temperatura>38)//d) Cuántas personas que se aplicaron la vacuna AstraZeneca, presentaron una temperatura mayor a 38°.
+				{
+					contarastratemp++
+				}
+
+				break;
+			case "Otra":
+				nbotra++ // c) La cantidad de personas de género No Binario que recibieron AstraZeneca u Otra.
+				break;		
+			default:
+				break;
+		}   
+	 seguir=prompt("Para seguir ingrese 'si' y para terminar 'no'");
+	 while (seguir!="si" && seguir!="no") 
+	 {
+	   seguir=prompt("ERROR - Para seguir ingrese 'si' y para terminar 'no'");
+	 }
+	}
+	promedio=acumuladadmassinfiebre/contarmsinfiebre;
+
+	alert("a) El nombre de la persona con mayor temperatura es "+nombremayortemp+" y la vacuna es "+vacunamayortemp);
+	alert("b) "+femsputnik+" personas de género Femenino recibieron la vacuna SputnikV.");
+	alert("c) La cantidad de personas de género No Binario que recibieron AstraZeneca es "+nbastra+" y Otra es "+nbotra);
+	alert("d) "+contarastratemp+" personas que se aplicaron la vacuna AstraZeneca, presentaron una temperatura mayor a 38°");
+  	if (!(isNaN(promedio)))
+	{
+	alert("e) El promedio de edad de los hombres que se aplicaron la vacuna SputnikV y no presentaron fiebre. (37° o menos) es "+promedio);
+	}		
+}
+*/
+
 /*
 Autor Tejeda Roberto
 Simulacro Julio 2021 Ej 3
