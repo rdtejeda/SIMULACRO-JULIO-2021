@@ -4,6 +4,7 @@
 
 
 */
+
 function mostrar()
 {
 
@@ -12,21 +13,391 @@ function mostrar()
 	alert("");
 	alert("");
 	alert("");
+ 
+  document.write("");
 
   /*
-  if (var !=0)
-  {
-    alert("");
-  }
-  */
-  
-	/*
-	if (!(isNaN(var)))
+  if (cantidad>0)
 	{
-	alert("");
+	alert("mensaje");
 	}
-	*/		
+	  else
+	  {
+		alert("Para el punto no hay datos ingresado");
+	  }
+  */
+
+  /*
+	if (acumulador!=0)
+  	{
+    alert("mensaje");
+  	}
+	  else
+	  {
+		alert("Para el punto no hay datos ingresado");
+	  }
+  */
+
+  /*	
+	if ((isNaN(x)))
+	{
+	alert("No hay Datos");
+	}
+	else
+	{
+		alert("");
+	}
+	*/
 }
+
+
+
+/*Alumno Tejeda Roberto
+  DNI 18223125
+Para una veterinaria se necesita un programa que permita ingresar datos de perros con su precio de vacunación a pagar hasta que el cliente quiera. 
+Por cada perro, se ingresa:
+* raza: (validar "sharpei", "galgo", "pastor").
+* nombre,
+* edad (entre 1 y 25),
+* peso (mas de 0),
+* precio de consulta (desde 500 hasta 1500).
+Se pide informar por alert:
+a)El el mas pesados de los galgos.
+b)El importe total a pagar,y  con descuento (solo si corresponde)
+	Si se vacunan más de 2 perros, se obtiene un 5% de descuento sobre el total a pagar.
+	Si se vacunan más de 4 perros, se obtiene un 10% de descuento sobre el total a pagar.
+c)promedio de peso entre cada raza de perros ingresada
+d)Nombre, raza y edad del perro más viejo ingresado
+
+function mostrar()
+{
+	var seguir;
+	seguir="si";
+	var raza;
+	var nombre;
+	var edad;
+	var peso;
+	var precio;
+	var banderamaspesadogalgo;
+	banderamaspesadogalgo=true;
+	var	nombregalgopesado;
+	var	pesogalgo;
+	var acumimportebruto;
+	acumimportebruto=0;
+	var	contadorperros;
+	contadorperros=0;
+	var descuento;
+	descuento=0;
+	var totalcondescuento;
+	var acumopesogalgo;
+	acumopesogalgo=0;
+	var congalgo;
+	congalgo=0;
+	var acumulopesopastor;
+	acumulopesopastor=0;
+	var conpastor;
+	conpastor=0;
+	var acumulopesoshar;
+	acumulopesoshar=0;
+	var conshar;
+	conshar=0;
+	var promsh;
+	var	promga;
+	var	prompa;
+	var banderamasviejo;
+	banderamasviejo=true;
+	var nombremasviejo;
+	var razamasviejo;
+	var edadmasviejo;
+
+	while (seguir == "si")
+	{
+	//	* raza: (validar "sharpei", "galgo", "pastor").
+		raza= prompt("Ingrese 'sharpei', 'galgo' ó 'pastor'");
+  	  while (raza != "sharpei" && raza != "galgo" && raza != "pastor") 
+    {
+		raza= prompt("ERROR - Ingrese 'sharpei', 'galgo' ó 'pastor'");
+  	  }
+		//	* nombre,
+		nombre= prompt("Ingrese Nombre (Entre 3 y 10 caracteres");
+   	 while (nombre.length<3 || nombre.length>10) 
+      {
+        nombre= prompt("Ingrese Nombre (Entre 3 y 10 caracteres");
+      }  
+	//	* edad (entre 1 y 25),
+		edad = prompt("Ingrese edad (entre 1 y 25");
+   	 edad = parseInt(edad);
+  	  while( edad<=0 || edad>25)
+      {
+		edad = prompt("Ingrese edad (entre 1 y 25");
+		edad = parseInt(edad);    
+      }
+		//	* peso (mas de 0),
+		peso = prompt("Ingrese peso (mas de 0),");
+    	peso = parseInt(peso);
+  	  while( peso<=0)
+      {
+        peso = prompt("ERROR - Ingrese peso (mas de 0),");
+    	peso = parseInt(peso);     
+      }
+		//	* precio de consulta (desde 500 hasta 1500).
+		precio = prompt("Ingrese precio de consulta (desde 500 hasta 1500).");
+    	precio = parseInt(precio);
+    	while( precio<500 || precio>1500)
+      {
+		precio = prompt("Ingrese precio de consulta (desde 500 hasta 1500).");
+    	precio = parseInt(precio);     
+      }
+	 switch (raza) // c)promedio de peso entre cada raza de perros ingresada
+	 {
+		case "galgo":
+		if (banderamaspesadogalgo) //	a)El el mas pesados de los galgos.
+		{
+			banderamaspesadogalgo=false;
+			nombregalgopesado=nombre;
+			pesogalgo=peso;
+		} 
+		 else 
+		   {
+			   if (peso>pesogalgo) 
+			   {
+				nombregalgopesado=nombre;
+				pesogalgo=peso;
+			   }
+		   }
+		   acumopesogalgo=acumopesogalgo+peso;
+		   congalgo++
+			break;
+			case "pastor":
+			acumulopesopastor=acumulopesopastor+peso;
+			conpastor++
+
+				break;
+				case "sharpei":
+				acumulopesoshar=acumulopesoshar+peso;
+				conshar++
+			
+					break;
+	
+		default:
+			break;
+	 }
+	 acumimportebruto=acumimportebruto+precio;	//b)El importe total a pagar,y  con descuento (solo si corresponde)
+	 contadorperros++
+ 
+	//d)Nombre, raza y edad del perro más viejo ingresado
+
+	if (banderamasviejo) 
+	{
+		banderamasviejo=false;
+		nombremasviejo=nombre;
+		razamasviejo=raza;
+		edadmasviejo=edad;
+	} 
+	 else 
+	   {
+		   if (edad>edadmasviejo) 
+		   {
+			nombremasviejo=nombre;
+			razamasviejo=raza;
+			edadmasviejo=edad;
+		   }
+	   }
+
+
+	 seguir=prompt("Para seguir ingrese 'si' y para terminar 'no'");
+	 while (seguir!="si" && seguir!="no") 
+	 {
+	   seguir=prompt("ERROR - Para seguir ingrese 'si' y para terminar 'no'");
+	 }
+	}
+	promsh=acumulopesoshar/conshar;
+	promga=acumopesogalgo/congalgo;
+	prompa=acumulopesopastor/conpastor;
+
+	if (contadorperros<2 || contadorperros>4)	//Si se vacunan más de 2 perros, se obtiene un 5% de descuento sobre el total a pagar.
+	{
+		descuento=.95
+	}
+	else
+	{
+		if(contadorperros>4 )//Si se vacunan más de 4 perros, se obtiene un 10% de descuento sobre el total a pagar.
+		{
+			descuento=0.9;
+		}
+	}
+	totalcondescuento=acumimportebruto*descuento
+
+	if (pesogalgo>0)
+	{
+		alert("a)El nombre de el mas pesados de los galgos es "+nombregalgopesado);
+	}
+	  else
+	  {
+		alert("Para el punto a) no hay datos ingresado");
+	  }
+	alert("b)El importe total a pagar sin descuento es "+acumimportebruto);
+	if (descuento !=0)
+	{
+		alert("b)El importe total a pagar con descuento es "+totalcondescuento)
+	}
+	
+	alert("c)promedio de peso de galgo es"+promga+" de sharpei es "+promsh+" y de pastor es "+prompa);
+	
+	alert("d)el perro más viejo ingresado es "+nombremasviejo+" la raza es "+razamasviejo+" y la edad es "+admasviejo);
+ 
+}
+*/
+
+/*Alumno Tejeda Roberto
+  DNI 18223125
+Nos dedicamos a la venta exclusiva de Discos rígidos.
+Debemos realizar la carga de 5(cinco) productos, de cada uno debo obtener los 
+siguientes datos:
+Tipo: (validar "HDD", "SSD" o "SSDM2")
+Precio: (validar entre 5000 y 18000),
+Cantidad de unidades (no puede ser 0 o negativo y no debe superar las 50 Unidades).
+Marca: (validar “Seagate”, “Western Digital”, “Kingston”)
+Capacidad: (validar 250Gb, 500Gb, 1Tb, 2Tb)
+Se debe Informar al usuario lo siguiente:
+a) Del más barato de los SSD, la cantidad de unidades y marca.
+b) Del tipo HDD, el de mayor precio, capacidad de almacenamiento y cantidad de unidades
+   disponibles. 
+c) Cuántas unidades de HDD hay en total.
+
+function mostrar()
+{
+	var i;
+	i=0;
+	var tipo;
+	var precio;
+	var cantidad;
+	var marca;
+	var capacidad;
+	var banderamasbaratossd;
+	banderamasbaratossd=true;
+	var	unidadesssd;
+	var marcassd;
+	var	prciomasbarto;
+	var banderamayorhdd;
+	banderamayorhdd=true;
+	var	mayorpreciohdd;
+	var	capacidahdd;
+	var	cantidadhdd;
+	var acumulohdd;
+	acumulohdd=0;
+	for (i = 0; i < 5 ; i++)
+	{
+		//Tipo: (validar "HDD", "SSD" o "SSDM2")
+		tipo= prompt("Ingrese 'HDD', 'SSD' ó 'SSDM2'");
+		while (tipo != "HDD" && tipo != "SSD" && tipo != "SSDM2") 
+		{
+			tipo= prompt("ERROR - Ingrese 'HDD', 'SSD' ó 'SSDM2'");
+		}
+		//Precio: (validar entre 5000 y 18000),.
+		precio = prompt("Ingrese Precio: ( entre 5000 y 18000)");
+		precio = parseInt(precio);
+		while( precio<5000 || precio>18000)
+		  {
+			precio = prompt("Ingrese Precio: ( entre 5000 y 18000)");
+			precio = parseInt(precio);   
+		  }
+		//Cantidad de unidades (no puede ser 0 o negativo y no debe superar las 50 Unidades).
+		cantidad = prompt("Ingrese Cantidad de unidades (no puede ser 0 o negativo y no debe superar las 50 Unidades)");
+		cantidad = parseInt(cantidad);
+		while( cantidad<=0 || cantidad>50)
+		  {
+			cantidad = prompt("ERROR - Ingrese Cantidad de unidades (no puede ser 0 o negativo y no debe superar las 50 Unidades)");
+			cantidad = parseInt(cantidad);     
+		  }
+		//Marca: (validar “Seagate”, “Western Digital”, “Kingston”)
+		marca= prompt("Ingrese Marca: (“Seagate”, “Western Digital”, “Kingston”)");
+		while (marca != "Seagate" && marca != "Western Digital" && marca != "Kingston") 
+		{
+			marca= prompt("ERROR - Ingrese Marca: (“Seagate”, “Western Digital”, “Kingston”)");
+		}
+		//Capacidad: (validar 250Gb, 500Gb, 1Tb, 2Tb)
+		capacidad= prompt("Ingrese Capacidad: (validar 250Gb, 500Gb, 1Tb, 2Tb)");
+		while (capacidad != "250Gb" && capacidad != "500Gb" && capacidad != "1Tb" && capacidad!= "2Tb") 
+		{
+			capacidad= prompt("ERROR - Ingrese Capacidad: (validar 250Gb, 500Gb, 1Tb, 2Tb)");
+		}
+		switch (tipo) {
+			case "HDD"://b) Del tipo HDD, el de mayor precio, capacidad de almacenamiento y cantidad de unidades  disponibles. 
+			if (banderamayorhdd) 
+            {
+                banderamayorhdd=false;
+					mayorpreciohdd=precio;
+					capacidahdd=capacidad;
+					cantidadhdd=cantidad;
+            } 
+             else 
+               {
+                   if (precio>mayorpreciohdd) 
+                   {
+					capacidahdd=capacidad;
+					cantidadhdd=cantidad;
+					mayorpreciohdd=precio;
+                   }
+               }
+			   acumulohdd=acumulohdd+cantidad;  //c) Cuántas unidades de HDD hay en total.
+
+				break;
+				case "SSD":
+					if (banderamasbaratossd) // a) Del más barato de los SSD, la cantidad de unidades y marca.
+		
+					{
+						banderamasbaratossd=false;
+						unidadesssd=cantidad;
+						marcassd=marca;
+					    prciomasbarto=precio;
+					} 
+					 else 
+					   {
+						   if (precio<prciomasbarto) 
+						   {
+							unidadesssd=cantidad;
+							marcassd=marca;
+					    	prciomasbarto=precio;
+						   }
+					   }
+
+					break;
+					case "SSDM":
+				
+						break;
+		
+			default:
+				break;
+		}
+	}
+	if (unidadesssd>0)
+	{
+	alert("a) Del más barato de los SSD, la cantidad de unidades es "+unidadesssd+" y la  marca es "+marcassd);
+	}
+	  else
+	  {
+		alert("Para el punto a) no hay datos ingresado");
+	  }
+	if (cantidadhdd>0)
+	{
+	alert("b) Del tipo HDD, el de mayor precio, capacidad de almacenamiento es "+capacidahdd+" y la cantidad de unidades disponibles es "+cantidadhdd);
+	}
+	  else
+	  {
+		alert("Para el punto b) no hay datos ingresado");
+	  }
+	if (acumulohdd !=0)
+  	{
+    alert("c) La unidades de HDD en total son "+acumulohdd);
+  	}
+	  else
+	  {
+		alert("Para el punto c) no hay datos ingresado");
+	  }
+}
+*/
+
 /*Alumno Tejeda Roberto
   DNI 18223125
 EJERCICIO 1

@@ -4,6 +4,7 @@
 
 
 */
+
 function mostrar()
 {
 
@@ -12,13 +13,29 @@ function mostrar()
 	alert("");
 	alert("");
 	alert("");
-  	document.write("");
+ 
+  document.write("");
 
   /*
-  if (var !=0)
-  {
-    alert("");
-  }
+  if (cantidad>0)
+	{
+	alert("mensaje");
+	}
+	  else
+	  {
+		alert("Para el punto no hay datos ingresado");
+	  }
+  */
+
+  /*
+	if (acumulador!=0)
+  	{
+    alert("mensaje");
+  	}
+	  else
+	  {
+		alert("Para el punto no hay datos ingresado");
+	  }
   */
 
   /*	
@@ -31,11 +48,4 @@ function mostrar()
 		alert("");
 	}
 	*/
-  
-	/*
-	if (!(isNaN(var)))
-	{
-	alert("");
-	}
-	*/		
 }
